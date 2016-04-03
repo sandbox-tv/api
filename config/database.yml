@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: sandbox_api
+  username: sandboxtv
+  password: sandboxtv
+
+test:
+  <<: *default
+  database: sandbox_api_test
+  username: sandboxtv
+  password: sandboxtv
+
+production:
+  <<: *default
