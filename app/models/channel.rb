@@ -13,6 +13,10 @@ class Channel < ActiveRecord::Base
   end
 
   def video_stream
-    @video_stream || VideoStream.new(username: user.username)
+    @video_stream ||= VideoStream.new(username: user.username)
+  end
+
+  def chat
+    @chat ||= Chat.new
   end
 end
