@@ -1,9 +1,9 @@
 class ChannelSerializer < ActiveModel::Serializer
-  attributes :self, :name
+  attributes :meta, :name
 
   has_one :video_stream
 
-  def self
+  def meta
     {
       path: object.path
     }

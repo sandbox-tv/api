@@ -1,5 +1,5 @@
 class DashboardSerializer < ActiveModel::Serializer
-  attributes :self
+  attributes :meta
   has_one :channel
 
   def filter(keys)
@@ -10,7 +10,7 @@ class DashboardSerializer < ActiveModel::Serializer
     object.user.channel
   end
 
-  def self
+  def meta
     {
       path: object.path
     }
