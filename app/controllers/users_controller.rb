@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create(username: params[:username], password: params[:password])
+    user = UserRepository.create(username: params[:username], password: params[:password])
 
     if user.save
       token = sign_in user

@@ -3,8 +3,13 @@ class User < ActiveRecord::Base
   validates :password, presence: true, allow_blank: false
 
   has_many :sessions, dependent: :destroy
+  has_one :channel, dependent: :destroy
 
   def self.authenticate(username, password)
     User.find_by(username: username, password: password)
+  end
+
+  def dashboard
+    @dashboard ||= Dashboard.new(self)
   end
 end
